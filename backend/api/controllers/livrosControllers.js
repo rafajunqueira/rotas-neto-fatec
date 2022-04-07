@@ -94,7 +94,7 @@ function livrosAi(req, res) {
       if (p_ativo == "A") {
         p_ativo = "I";
       } else p_ativo = "A";
-
+git
       console.log("A/I: " + p_ativo);
       models.aiLivros(id, p_ativo, function (err, result) {
         if (err) {
