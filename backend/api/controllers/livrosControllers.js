@@ -8,6 +8,7 @@ module.exports = {
   livrosDelete,
   livrosInsert,
   livrosAi,
+  joinEditorasLivrosGetById,
 };
 
 function livrosIndex(req, res) {
@@ -29,6 +30,19 @@ function livrosGetById(req, res) {
   const id = req.params.id;
   console.log("Parâmetro SELECT POR ID Livro Recebido: " + id);
   models.getByIdLivros(id, function (err, resposta) {
+    console.log("Retorno de livros por id { MODELS }", resposta);
+    if (err) {
+      throw err;
+    } else {
+      res.json(resposta);
+    }
+  });
+}
+
+function joinEditorasLivrosGetById(req, res) {
+  const id = req.params.id;
+  console.log("Parâmetro JOIN Livro com Editora Recebido: " + id);
+  models.editorasLivrosGetByIdJoin(id, function (err, resposta) {
     console.log("Retorno de livros por id { MODELS }", resposta);
     if (err) {
       throw err;

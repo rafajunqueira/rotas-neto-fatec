@@ -7,7 +7,15 @@ module.exports = {
   deleteLivros,
   // insertLivros,
   aiLivros,
+  editorasLivrosGetByIdJoin,
 };
+
+function editorasLivrosGetByIdJoin(id, callback) {
+  const p_sql =
+    "select l.liv_codigo, l.liv_titulo, a.aut_codigo, a.aut_nome from livros l inner join autores a where l.aut_codigo=a.aut_codigo and l.liv_codigo=" +
+    id;
+  conexao.query(p_sql, callback);
+}
 
 function getAllLivros(callback) {
   conexao.query("select * from livros", callback);

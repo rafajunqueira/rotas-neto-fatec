@@ -6,6 +6,8 @@ server.get("/livros/listar", controller.livrosGetAll);
 
 server.get("/livros/:id", controller.livrosGetById);
 
+server.get("/livros/join/:id", controller.joinEditorasLivrosGetById);
+
 // server.put("/livros", controller.livrosUpdate);
 
 server.delete("/livros/:id", controller.livrosDelete);
